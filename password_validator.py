@@ -6,9 +6,11 @@ class PasswordValidator:
         error_string = ""
 
         if not self._more_than_eight_charachters():
-            error_string = "Password must be at least 8 charachters"
-        elif not self._has_two_numbers():
-            error_string = "The password must contain at least 2 numbers"
+            error_string += "\n" + "Password must be at least 8 charachters"
+
+        if not self._has_two_numbers():
+            error_string += "\n" + "The password must contain at least 2 numbers"
+
         return error_string
 
     def _more_than_eight_charachters(self):
