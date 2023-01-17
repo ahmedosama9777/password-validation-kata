@@ -36,3 +36,9 @@ class TestPasswordValidator(TestCase):
         valid, error_string = password_validator.validate()
         self.assertEqual(valid, False)
         self.assertEqual(error_string, "\nThe password must contain at least 1 special charachter")
+    
+    def test_perfect_password(self):
+        password_validator = PasswordValidator(password="Qwer*ty12")
+        valid, error_string = password_validator.validate()
+        self.assertEqual(valid, True)
+        self.assertEqual(error_string, "")
