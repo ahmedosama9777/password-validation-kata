@@ -11,7 +11,7 @@ class PasswordValidator:
         if not self._has_two_numbers():
             error_string += "\n" + "The password must contain at least 2 numbers"
 
-        return error_string
+        return False if error_string else True, error_string
 
     def _more_than_eight_charachters(self):
         if len(self.password) < 8:
