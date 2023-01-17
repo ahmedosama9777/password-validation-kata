@@ -10,12 +10,14 @@ class PasswordValidator:
 
         if not self._has_two_numbers():
             error_string += "\n" + "The password must contain at least 2 numbers"
-        
+
         if not self._has_one_capital_letter():
             error_string += "\n" + "The password must contain at least 1 capital letter"
-        
+
         if not self._has_one_special_char():
-            error_string += "\n" + "The password must contain at least 1 special charachter"
+            error_string += (
+                "\n" + "The password must contain at least 1 special charachter"
+            )
 
         return False if error_string else True, error_string
 
@@ -39,12 +41,12 @@ class PasswordValidator:
         for char in self.password:
             if char.isupper():
                 return True
-        
+
         return False
-    
+
     def _has_one_special_char(self):
         for char in self.password:
             if not char.isalnum():
                 return True
-        
+
         return False
